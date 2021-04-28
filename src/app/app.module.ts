@@ -6,19 +6,22 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MdbFormsModule, MdbModule } from 'mdb-angular-ui-kit';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchPokemonComponent
+    SearchPokemonComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatInputModule
+    FormsModule,
+    MdbModule,
+    MdbFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
