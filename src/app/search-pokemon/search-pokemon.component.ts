@@ -22,21 +22,18 @@ export class SearchPokemonComponent implements OnInit {
   }
 
   public btnSearch_Click(): void {
-    this.spinner.show();
     this.pokemonService.getPokemon(this.pokemonName.toLowerCase()).pipe(
       map((pokemon: Pokemon) => Object.assign(pokemon, { name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }))
     ).subscribe(
       pokemon => this.pokemon = pokemon,
       () => {
-        this.spinner.hide();
         Swal.fire({
           title: 'Error!',
           text: 'No se encuentra ese Pokemon',
           icon: 'error',
           confirmButtonText: 'Buscar otro!'
         })
-      },
-      () => this.spinner.hide()
+      }
     );
   }
 
