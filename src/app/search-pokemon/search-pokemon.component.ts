@@ -3,6 +3,7 @@ import { PokemonService } from '../pokemon.service';
 import { Pokemon } from '../pokemon.interface';
 import { NgxSpinnerService } from 'ngx-spinner';
 import Swal from 'sweetalert2';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-pokemon',
@@ -22,7 +23,9 @@ export class SearchPokemonComponent implements OnInit {
 
   public btnSearch_Click(): void {
     this.spinner.show();
-    this.pokemonService.getPokemon(this.pokemonName).subscribe(
+    this.pokemonService.getPokemon(this.pokemonName.toLowerCase()).pipe(
+      map((pokemon: Pokemon) => Object.assign(pokemon, { name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }))
+    ).subscribe(
       pokemon => this.pokemon = pokemon,
       () => {
         this.spinner.hide();
