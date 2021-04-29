@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,11 +8,14 @@ import { SearchPokemonComponent } from './search-pokemon/search-pokemon.componen
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule, MdbModule } from 'mdb-angular-ui-kit';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchPokemonComponent,
+    PokemonComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,9 +24,11 @@ import { MdbFormsModule, MdbModule } from 'mdb-angular-ui-kit';
     HttpClientModule,
     FormsModule,
     MdbModule,
-    MdbFormsModule
+    MdbFormsModule,
+    NgxSpinnerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
