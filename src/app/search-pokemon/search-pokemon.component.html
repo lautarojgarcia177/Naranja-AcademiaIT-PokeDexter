@@ -1,0 +1,12 @@
+<div class="container-fluid mb-3 text-center">
+  <h1>Buscar pokemon</h1>
+  <div class="d-flex justify-content-center">
+      <mdb-form-control>
+        <input mdbInput type="text" id="form1" class="form-control" (keydown.enter)="btnSearch.click()" [(ngModel)]="pokemonName" />
+        <label mdbLabel class="form-label" for="form1">Nombre del pokemon</label>
+      </mdb-form-control>
+      <button #btnSearch type="button" class="btn btn-primary" (click)="btnSearch_Click()">Consultar</button>
+  </div>
+</div>
+<app-pokemon [pokemon]="pokemon"></app-pokemon>
+<ngx-spinner></ngx-spinner>
